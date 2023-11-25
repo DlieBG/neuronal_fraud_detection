@@ -16,17 +16,17 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 #                 'WERT_BEST_GES', 'MAHN_AKT', 'MAHN_HOECHST']
 
 df = pandas.read_csv(
-    filepath_or_buffer="./Trainingsdaten.csv",
+    filepath_or_buffer="data/Trainingsdaten.csv",
     delimiter=";",
     index_col='BESTELLIDENT',
     # dtype={col: 'category' for col in cat_cols}
 )
 
-df['TARGET_BETRUG'] = numpy.where(df['TARGET_BETRUG'] == 'ja', 1, 0)
-df['B_EMAIL'] = numpy.where(df['B_EMAIL'] == 'ja', 1, 0)
-df['B_TELEFON'] = numpy.where(df['B_TELEFON'] == 'ja', 1, 0)
-df['FLAG_LRIDENTISCH'] = numpy.where(df['FLAG_LRIDENTISCH'] == 'ja', 1, 0)
-df['FLAG_NEWSLETTER'] = numpy.where(df['FLAG_NEWSLETTER'] == 'ja', 1, 0)
+# df['TARGET_BETRUG'] = numpy.where(df['TARGET_BETRUG'] == 'ja', True, False)
+# df['B_EMAIL'] = numpy.where(df['B_EMAIL'] == 'ja', 1, 0)
+# df['B_TELEFON'] = numpy.where(df['B_TELEFON'] == 'ja', 1, 0)
+# df['FLAG_LRIDENTISCH'] = numpy.where(df['FLAG_LRIDENTISCH'] == 'ja', 1, 0)
+# df['FLAG_NEWSLETTER'] = numpy.where(df['FLAG_NEWSLETTER'] == 'ja', 1, 0)
 df['FAIL_LPLZ'] = numpy.where(df['FAIL_LPLZ'] == 'ja', 1, 0)
 df['FAIL_LORT'] = numpy.where(df['FAIL_LORT'] == 'ja', 1, 0)
 df['FAIL_LPLZORTMATCH'] = numpy.where(df['FAIL_LPLZORTMATCH'] == 'ja', 1, 0)
