@@ -6,29 +6,30 @@ from tensorflow.keras import layers
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 
-def clean_and_type(df):
-    # if 'BESTELLIDENT' in df:
-    #     df.drop('BESTELLIDENT', axis=1, inplace=True)
-    if 'TARGET_BETRUG' in df:
-        df['TARGET_BETRUG'] = numpy.where(df['TARGET_BETRUG'] == 'ja', 1, 0)
-    df['B_EMAIL'] = numpy.where(df['B_EMAIL'] == 'ja', 1, 0)
-    df['B_TELEFON'] = numpy.where(df['B_TELEFON'] == 'ja', 1, 0)
-    df['FLAG_LRIDENTISCH'] = numpy.where(df['FLAG_LRIDENTISCH'] == 'ja', 1, 0)
-    df['FLAG_NEWSLETTER'] = numpy.where(df['FLAG_NEWSLETTER'] == 'ja', 1, 0)
-    df['FAIL_LPLZ'] = numpy.where(df['FAIL_LPLZ'] == 'ja', 1, 0)
-    df['FAIL_LORT'] = numpy.where(df['FAIL_LORT'] == 'ja', 1, 0)
-    df['FAIL_LPLZORTMATCH'] = numpy.where(df['FAIL_LPLZORTMATCH'] == 'ja', 1, 0)
-    df['FAIL_RPLZ'] = numpy.where(df['FAIL_RPLZ'] == 'ja', 1, 0)
-    df['FAIL_RORT'] = numpy.where(df['FAIL_RORT'] == 'ja', 1, 0)
-    df['FAIL_RPLZORTMATCH'] = numpy.where(df['FAIL_RPLZORTMATCH'] == 'ja', 1, 0)
-    df['NEUKUNDE'] = numpy.where(df['NEUKUNDE'] == 'ja', 1, 0)
-    df['CHK_LADR'] = numpy.where(df['CHK_LADR'] == 'ja', 1, 0)
-    df['CHK_RADR'] = numpy.where(df['CHK_RADR'] == 'ja', 1, 0)
-    df['CHK_KTO'] = numpy.where(df['CHK_KTO'] == 'ja', 1, 0)
-    df['CHK_CARD'] = numpy.where(df['CHK_CARD'] == 'ja', 1, 0)
-    df['CHK_COOKIE'] = numpy.where(df['CHK_COOKIE'] == 'ja', 1, 0)
-    df['CHK_IP'] = numpy.where(df['CHK_IP'] == 'ja', 1, 0)
+import label_types
 
+def get_training_data():
+    df = pandas.read_csv(
+        filepath_or_buffer="./Trainingsdaten.csv",
+        delimiter=";",
+        index_col='BESTELLIDENT',
+    )
+    clean(df)
+    df[label_types.traget_col] = label_types.yes_no_encoder.transform(df[label_types.traget_col])
+    df.info()
+    return df
+
+def get_classification_data():
+    df = pandas.read_csv(
+        filepath_or_buffer="./Klassifizierungsdaten.csv",
+        delimiter=";",
+        index_col='BESTELLIDENT',
+    )
+    clean(df)
+    return df
+
+def clean_dates(df):
+    # B_GEBDATUM
     df['B_GEBDATUM'] = pandas.to_datetime(df['B_GEBDATUM'])
 
     df['B_GEBDATUM_YEAR'] = df['B_GEBDATUM'].dt.year
@@ -37,6 +38,16 @@ def clean_and_type(df):
 
     df.drop('B_GEBDATUM', axis=1, inplace=True)
 
+    #DATUM_LBEST
+    df['DATUM_LBEST'] = pandas.to_datetime(df['DATUM_LBEST'])
+
+    df['DATUM_LBEST_YEAR'] = df['DATUM_LBEST'].dt.year
+    df['DATUM_LBEST_MONTH'] = df['DATUM_LBEST'].dt.month
+    df['DATUM_LBEST_DAY'] = df['DATUM_LBEST'].dt.day
+
+    df.drop('DATUM_LBEST', axis=1, inplace=True)
+    
+    # TIME_BEST
     df['TIME_BEST'] = pandas.to_datetime(df['TIME_BEST'])
 
     df['TIME_BEST_HOUR'] = df['TIME_BEST'].dt.hour
@@ -44,9 +55,37 @@ def clean_and_type(df):
 
     df.drop('TIME_BEST', axis=1, inplace=True)
 
-    df['ANUMMER_08'] = df['ANUMMER_08'].fillna(0).astype(int)
-    df['ANUMMER_09'] = df['ANUMMER_09'].fillna(0).astype(int)
-    df['ANUMMER_10'] = df['ANUMMER_10'].fillna(0).astype(int)
+def clean_days(df):
+    df[label_types.day_column] = label_types.days_encoder.transform(df[label_types.day_column])
 
-    df['WERT_BEST'] = df['WERT_BEST'].str.replace(',', '.').astype(float)
-    df['WERT_BEST_GES'] = df['WERT_BEST_GES'].str.replace(',', '.').astype(float)
+def clean_yes_no(df):
+    for col in label_types.yes_no_columns:
+        df[col].fillna(label_types.na, inplace=True)
+        df[col] = label_types.yes_no_encoder.transform(df[col])
+
+def clean_articels(df):
+    for col in label_types.articel_columns:
+        df[col].fillna(label_types.na_articel, inplace=True)
+        df[col] = label_types.articel_encoder.transform(df[col])
+
+def clean_payment(df):
+    df[label_types.payment_method_cloumn] = label_types.payment_method_encoder.transform(df[label_types.payment_method_cloumn])
+
+def clean_cards(df):
+    df[label_types.card_type_column].fillna(label_types.na, inplace=True)
+    df[label_types.card_type_column] = label_types.card_type_encoder.transform(df[label_types.card_type_column])
+    df[label_types.card_valid_id_column].fillna(label_types.na, inplace=True)
+    df[label_types.card_valid_id_column] = label_types.card_valid_id_encoder.transform(df[label_types.card_valid_id_column])
+
+def clean_numbers(df):
+    for col in label_types.float_columns:
+        df[col] = df[col].str.replace(',', '.').astype(float)
+
+def clean(df):
+    clean_days(df)
+    clean_yes_no(df)
+    clean_articels(df)
+    clean_payment(df)
+    clean_cards(df)
+    clean_numbers(df)
+    clean_dates(df)
