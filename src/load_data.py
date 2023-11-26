@@ -1,13 +1,86 @@
 import pandas as pd
 import numpy as np
 
-def __to_bool(data_frame: pd.DataFrame, key: str, true: str = 'ja') -> pd.Series:
-    return data_frame[key].where(data_frame[key] == true)
+sequential_columns = [
+    'WERT_BEST',
+    'ANZ_BEST',
+    'SESSION_TIME',
+    'ANZ_BEST_GES',
+    'WERT_BEST_GES',
+    'MAHN_AKT',
+    'MAHN_HOECHST',
+]
 
-def __to_datetime(data_frame: pd.DataFrame, key: str) -> pd.Timestamp:
-    return pd.to_datetime(data_frame[key])
+discreet_columns = [
+    'B_EMAIL',
+    'B_TELEFON',
+    'FLAG_LRIDENTISCH',
+    'FLAG_NEWSLETTER',
+    'Z_METHODE',
+    'Z_CARD_ART',
+    'Z_CARD_VALID',
+    'Z_LAST_NAME',
+    'TAG_BEST',
+    'ANUMMER_01',
+    'ANUMMER_02',
+    'ANUMMER_03',
+    'ANUMMER_04',
+    'ANUMMER_05',
+    'ANUMMER_06',
+    'ANUMMER_07',
+    'ANUMMER_08',
+    'ANUMMER_09',
+    'ANUMMER_10',
+    'CHK_LADR',
+    'CHK_RADR',
+    'CHK_KTO',
+    'CHK_CARD',
+    'CHK_COOKIE',
+    'CHK_IP',
+    'FAIL_LPLZ',
+    'FAIL_LORT',
+    'FAIL_LPLZORTMATCH',
+    'FAIL_RPLZ',
+    'FAIL_RORT',
+    'FAIL_RPLZORTMATCH',
+    'NEUKUNDE',
+]
 
-def load_data(csv_path: str, include_id: bool = True) -> pd.DataFrame:
+__datetime_columns = [
+    { 'raw_key': 'B_GEBDATUM', 'new_key': 'B_GEBDATUM.year', 'type': 'year' },
+    { 'raw_key': 'B_GEBDATUM', 'new_key': 'B_GEBDATUM.month', 'type': 'month' },
+    { 'raw_key': 'B_GEBDATUM', 'new_key': 'B_GEBDATUM.day', 'type': 'day' },
+    { 'raw_key': 'TIME_BEST', 'new_key': 'TIME_BEST.hour', 'type': 'hour' },
+    { 'raw_key': 'TIME_BEST', 'new_key': 'TIME_BEST.minute', 'type': 'minute' },
+    { 'raw_key': 'DATUM_LBEST', 'new_key': 'DATUM_LBEST.year', 'type': 'year' },
+    { 'raw_key': 'DATUM_LBEST', 'new_key': 'DATUM_LBEST.month', 'type': 'month' },
+    { 'raw_key': 'DATUM_LBEST', 'new_key': 'DATUM_LBEST.day', 'type': 'day' },
+]
+
+datetime_columns = [
+    datetime_column['new_key'] for datetime_column in __datetime_columns
+]
+
+predict_columns = sequential_columns + discreet_columns + datetime_columns
+
+def __to_datetime(raw_data: pd.DataFrame, datetime_column: dict) -> int:
+    datetime = pd.to_datetime(raw_data[datetime_column['raw_key']])
+
+    match datetime_column['type']:
+        case 'year':
+            return datetime.dt.year
+        case 'month':
+            return datetime.dt.month
+        case 'day':
+            return datetime.dt.day
+        case 'hour':
+            return datetime.dt.hour
+        case 'minute':
+            return datetime.dt.minute
+        case _:
+            return 0
+
+def load_data(csv_path: str, include_id: bool = False) -> pd.DataFrame:
     raw_data = pd.read_csv(
         filepath_or_buffer=csv_path,
         delimiter=';',
@@ -16,39 +89,21 @@ def load_data(csv_path: str, include_id: bool = True) -> pd.DataFrame:
     parsed_data = pd.DataFrame()
 
     if include_id:
-        parsed_data['id'] = raw_data['BESTELLIDENT']
+        parsed_data['BESTELLIDENT'] = raw_data['BESTELLIDENT']
+            
+    if 'TARGET_BETRUG' in raw_data:
+        parsed_data['TARGET_BETRUG'] = np.where(raw_data['TARGET_BETRUG'] == 'ja', 1, 0)
 
-    parsed_data['is_fraud'] = np.where(raw_data['TARGET_BETRUG'] == 'ja', 1, 0)
-    parsed_data['has_email'] = raw_data['B_EMAIL']
-    parsed_data['has_telefon'] = raw_data['B_TELEFON']
-    
-    parsed_data['birth_date.year'] = __to_datetime(raw_data, 'B_GEBDATUM').dt.year
-    parsed_data['birth_date.month'] = __to_datetime(raw_data, 'B_GEBDATUM').dt.month
-    parsed_data['birth_date.day'] = __to_datetime(raw_data, 'B_GEBDATUM').dt.day
+    for sequential_column in sequential_columns:
+        if sequential_column in raw_data:
+            parsed_data[sequential_column] = raw_data[sequential_column].astype('string').str.replace(',', '.').astype(float)
 
-    parsed_data['has_identical_addresses'] = raw_data['FLAG_LRIDENTISCH']
-    parsed_data['has_newsletter'] = raw_data['FLAG_NEWSLETTER']
-    parsed_data['payment_method'] = raw_data['Z_METHODE']
-    parsed_data['payment_card_type'] = raw_data['Z_CARD_ART'].fillna('unbekannt')
-    parsed_data['payment_card_valid'] = raw_data['Z_CARD_VALID']
-    parsed_data['has_payment_last_name'] = raw_data['Z_LAST_NAME'].fillna('unbekannt')
+    for discreet_column in discreet_columns:
+        if discreet_column in raw_data:
+            parsed_data[discreet_column] = raw_data[discreet_column].fillna('0').astype('string')
 
-    parsed_data['order_value'] = raw_data['WERT_BEST'].str.replace(',', '.').astype(float)
-
-    parsed_data['order_day_of_week'] = raw_data['TAG_BEST']
-
-    parsed_data['order_time.hour'] = __to_datetime(raw_data, 'TIME_BEST').dt.hour
-    parsed_data['order_time.minute'] = __to_datetime(raw_data, 'TIME_BEST').dt.minute
-
-    parsed_data['product_count'] = raw_data['ANZ_BEST']
-
-    # ANUMMER_XX
-    # parsed_data['has_payment_last_name'] = raw_data['Z_LAST_NAME'].fillna('unbekannt')
-
-    if include_id:
-        parsed_data.set_index(
-            keys='id'
-        )
+    for datetime_column in __datetime_columns:
+        if datetime_column['raw_key'] in raw_data:
+            parsed_data[datetime_column['new_key']] = __to_datetime(raw_data, datetime_column)
 
     return parsed_data
- 
