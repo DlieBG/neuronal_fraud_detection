@@ -17,10 +17,10 @@ output = training_data['TARGET_BETRUG']
 input_train, input_test, output_train, output_test = train_test_split(input, output, test_size=.2)
 
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(64, activation='relu', input_shape=(input_train.shape[1],)),
-    tf.keras.layers.Dropout(.7),
-    tf.keras.layers.Dense(32, activation='relu'),
-    tf.keras.layers.Dropout(.7),
+    tf.keras.layers.LSTM(50, input_shape=(input_train.shape[1],32)),
+    tf.keras.layers.Dropout(.5),
+    tf.keras.layers.Dense(4, activation='relu'),
+    tf.keras.layers.Dropout(.5),
     tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 

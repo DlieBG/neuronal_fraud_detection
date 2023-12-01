@@ -1,4 +1,5 @@
 pandas
 tensorflow
+tensorflow_decision_forests
 numpy
 scikit-learn
