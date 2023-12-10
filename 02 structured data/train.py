@@ -57,7 +57,7 @@ def dataframe_to_dataset(dataframe: pd.DataFrame, shuffle: bool = True, batch_si
 def get_normalization_layer(name: str, dataset: tf.data.Dataset) -> k.layers.Layer:
     normalizer = k.layers.Normalization(axis=None)
 
-    feature_ds = dataset.map(lambda x, y: x[name])
+    feature_ds = dataset.map(lambda x, _: x[name])
 
     normalizer.adapt(feature_ds)
 
