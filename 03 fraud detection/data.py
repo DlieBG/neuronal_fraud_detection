@@ -72,9 +72,9 @@ def __to_datetime(dataframe: pd.DataFrame, feature: dict):
 
     match feature['type']:
         case DatetimeType.DATE:
-            return [[y, m, d] for y, m, d in zip(datetime.dt.year, datetime.dt.month, datetime.dt.month)]
+            return [y * 365 + m * 30 + d for y, m, d in zip(datetime.dt.year, datetime.dt.month, datetime.dt.month)]
         case DatetimeType.TIME:
-            return [[h, m] for h, m in zip(datetime.dt.hour, datetime.dt.minute)]
+            return [h * 60 + m for h, m in zip(datetime.dt.hour, datetime.dt.minute)]
 
 def __to_zipped_products(dataframe: pd.DataFrame):
     return [
@@ -100,19 +100,17 @@ def clean_dataframe(dataframe: pd.DataFrame) -> pd.DataFrame:
 
     return parsed_dataframe
 
+def dataframe_to_tensors(dataframe: pd.DataFrame):
+    return {
+        feature: tf.convert_to_tensor(dataframe[feature].to_list()) for feature in numerical_features + categorical_features + datetime_features + [products_feature]
+    }
+    
 def dataframe_to_dataset(dataframe: pd.DataFrame, batch_size: int = 32) -> tf.data.Dataset:
     targets = dataframe.copy().pop('TARGET_BETRUG')
     
     return tf.data.Dataset.from_tensor_slices(
         tensors=(
-            {
-                **{
-                    feature: np.expand_dims(dataframe[feature], 1) for feature in numerical_features + categorical_features
-                },
-                **{
-                    feature: dataframe[feature].to_list() for feature in datetime_features + [products_feature]
-                },
-            },
+            dataframe_to_tensors(dataframe),
             targets,
         )
     ).shuffle(
@@ -122,14 +120,3 @@ def dataframe_to_dataset(dataframe: pd.DataFrame, batch_size: int = 32) -> tf.da
     ).prefetch(
         buffer_size=batch_size,
     )
-
-def dataframe_to_tensors(dataframe: pd.DataFrame):
-    return {
-        **{
-            feature: tf.convert_to_tensor(np.expand_dims(dataframe[feature], 1)) for feature in numerical_features + categorical_features
-        },
-        **{
-            feature: tf.convert_to_tensor(dataframe[feature].to_list()) for feature in datetime_features + [products_feature]
-        },
-    }
-    

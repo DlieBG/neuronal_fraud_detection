@@ -12,9 +12,12 @@ def get_normalization_layer(name: str, dataset: tf.data.Dataset) -> k.layers.Lay
 
     return normalizer
 
-def get_category_encoding_layer(name: str, dataset: tf.data.Dataset, dtype: str, max_tokens: int = None) -> k.layers.Layer:
+def get_category_encoding_layer(name: str, dataset: tf.data.Dataset, dtype: str, max_tokens: int = None, output_mode: str = 'int') -> k.layers.Layer:
     if dtype == 'string':
-        index = k.layers.StringLookup(max_tokens=max_tokens)
+        index = k.layers.StringLookup(
+            max_tokens=max_tokens,
+            output_mode=output_mode,
+        )
     else:
         index = k.layers.IntegerLookup(max_tokens=max_tokens)
 

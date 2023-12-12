@@ -24,16 +24,18 @@ dataframe = data.clean_dataframe(
 train, validate, test = np.split(
     ary=dataframe,
     indices_or_sections=[
-        int(.7 * len(dataframe)),
+        int(.65 * len(dataframe)),
         int(.9 * len(dataframe)),
     ]
 )
+
+non_fraud, fraud = np.bincount(dataframe['TARGET_BETRUG'])
 
 print(len(train), 'training examples')
 print(len(validate), 'validation examples')
 print(len(test), 'test examples')
 
-batch_size = 128
+batch_size = 64
 
 train_ds = data.dataframe_to_dataset(
     dataframe=train,
@@ -51,7 +53,7 @@ test_ds = data.dataframe_to_dataset(
 inputs = []
 encoded_layers = []
 
-for feature in data.numerical_features:
+for feature in data.numerical_features + data.datetime_features:
     input = k.Input(
         shape=(1,),
         name=feature,
@@ -78,7 +80,7 @@ for feature in data.categorical_features:
         name=feature,
         dataset=train_ds,
         dtype='string',
-        max_tokens=100,
+        max_tokens=25,
     )
 
     encoded_layer = category_layer(input)
@@ -86,31 +88,6 @@ for feature in data.categorical_features:
     inputs.append(input)
     encoded_layers.append(encoded_layer)
     
-for feature in data.__datetime_features:
-    match feature['type']:
-        case data.DatetimeType.DATE:
-            input = k.Input(
-                shape=(3,),
-                name=feature['key'],
-            )
-        case data.DatetimeType.TIME:
-            input = k.Input(
-                shape=(2,),
-                name=feature['key'],
-            )
-
-    category_layer = encoder.get_category_encoding_layer(
-        name=feature['key'],
-        dataset=train_ds,
-        dtype='int',
-        max_tokens=100,
-    )
-
-    encoded_layer = category_layer(input)
-
-    inputs.append(input)
-    encoded_layers.append(encoded_layer)
-            
 input = k.Input(
     shape=(len(data.product_features),),
     name=data.products_feature,
@@ -121,7 +98,9 @@ category_layer = encoder.get_category_encoding_layer(
     name=data.products_feature,
     dataset=train_ds,
     dtype='string',
-    max_tokens=1000,
+    max_tokens=250,
+    # output_mode='multi_hot',
+    output_mode='int',
 )
 
 encoded_layer = category_layer(input)
@@ -130,20 +109,29 @@ inputs.append(input)
 encoded_layers.append(encoded_layer)
 
 # create model
-all_features = k.layers.concatenate(encoded_layers)
-
-x = k.layers.Dense(128, activation='relu')(all_features)
+x = k.layers.concatenate(encoded_layers)
+x = k.layers.Dense(128, activation='relu')(x)
 x = k.layers.Dropout(.5)(x)
-x = k.layers.Dense(48, activation='relu')(x)
-x = k.layers.Dropout(.5)(x)
-output = k.layers.Dense(1)(x)
+x = k.layers.Dense(64, activation='relu')(x)
+x = k.layers.Dropout(.25)(x)
+output = k.layers.Dense(1, activation='sigmoid')(x)
 
 model = k.Model(inputs, output)
 
 model.compile(
-    optimizer='adam',
-    loss=k.losses.BinaryCrossentropy(from_logits=True),
-    metrics=['accuracy'],
+    optimizer=k.optimizers.Adam(
+        learning_rate=.001,
+    ),
+    loss=k.losses.BinaryCrossentropy(
+        label_smoothing=.33,
+    ),
+    metrics=[
+        'accuracy',
+        k.metrics.TrueNegatives(name='tn'),
+        k.metrics.TruePositives(name='tp'),
+        k.metrics.FalseNegatives(name='fn'),
+        k.metrics.FalsePositives(name='fp'),
+    ],
 )
 
 k.utils.plot_model(
@@ -157,16 +145,24 @@ model.fit(
     x=train_ds,
     epochs=10,
     validation_data=validate_ds,
-    verbose=2,
+    class_weight={
+        0: 1.25,
+        1: 8,
+    },
 )
 
 # evaluate model
-loss, accuracy = model.evaluate(
+model.evaluate(
     x=test_ds,
 )
-
-print(f'Loss: {loss} Accuracy: {accuracy}')
 
 # save model
 model.save('fraud_classifier.keras')
 
+training_tensors = data.dataframe_to_tensors(dataframe)
+dataframe['PREDICTION'] = model.predict(training_tensors)
+dataframe.sort_values(by='PREDICTION', ascending=False).to_csv('predict_training.csv')
+
+test_tensors = data.dataframe_to_tensors(test)
+test['PREDICTION'] = model.predict(test_tensors)
+test.sort_values(by='PREDICTION', ascending=False).to_csv('predict_training_test.csv')
