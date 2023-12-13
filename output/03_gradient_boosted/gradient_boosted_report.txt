@@ -1,0 +1,350 @@
+Model: "gradient_boosted_trees_model" 
+_________________________________________________________________ 
+ Layer (type)                Output Shape              Param #    
+================================================================= 
+================================================================= 
+Total params: 1 (1.00 Byte) 
+Trainable params: 0 (0.00 Byte) 
+Non-trainable params: 1 (1.00 Byte) 
+_________________________________________________________________ 
+Type: "GRADIENT_BOOSTED_TREES"
+Task: CLASSIFICATION
+Label: "__LABEL"
+
+Input Features (42):
+	ANUMMERS.0
+	ANUMMERS.1
+	ANUMMERS.2
+	ANUMMERS.3
+	ANUMMERS.4
+	ANUMMERS.5
+	ANUMMERS.6
+	ANUMMERS.7
+	ANUMMERS.8
+	ANUMMERS.9
+	ANZ_BEST
+	ANZ_BEST_GES
+	B_EMAIL
+	B_GEBDATUM
+	B_TELEFON
+	CHK_CARD
+	CHK_COOKIE
+	CHK_IP
+	CHK_KTO
+	CHK_LADR
+	CHK_RADR
+	DATUM_LBEST
+	FAIL_LORT
+	FAIL_LPLZ
+	FAIL_LPLZORTMATCH
+	FAIL_RORT
+	FAIL_RPLZ
+	FAIL_RPLZORTMATCH
+	FLAG_LRIDENTISCH
+	FLAG_NEWSLETTER
+	MAHN_AKT
+	MAHN_HOECHST
+	NEUKUNDE
+	SESSION_TIME
+	TAG_BEST
+	TIME_BEST
+	WERT_BEST
+	WERT_BEST_GES
+	Z_CARD_ART
+	Z_CARD_VALID
+	Z_LAST_NAME
+	Z_METHODE
+
+Trained with weights
+
+Variable Importance: INV_MEAN_MIN_DEPTH:
+    1.        "NEUKUNDE"  0.298787 ################
+    2.    "Z_CARD_VALID"  0.255438 ##########
+    3.      "ANUMMERS.2"  0.229696 #######
+    4.      "ANUMMERS.0"  0.221910 ######
+    5.        "CHK_LADR"  0.200265 ###
+    6.       "B_TELEFON"  0.199918 ###
+    7.    "SESSION_TIME"  0.199435 ###
+    8.      "Z_CARD_ART"  0.198866 ###
+    9.         "B_EMAIL"  0.195919 ###
+   10.        "TAG_BEST"  0.186298 ##
+   11.       "WERT_BEST"  0.175084 
+   12.      "ANUMMERS.1"  0.173623 
+   13.      "B_GEBDATUM"  0.169425 
+   14.    "MAHN_HOECHST"  0.169190 
+   15.     "DATUM_LBEST"  0.168996 
+   16.      "CHK_COOKIE"  0.168825 
+   17.        "CHK_RADR"  0.168797 
+   18.       "TIME_BEST"  0.168192 
+   19.       "Z_METHODE"  0.168101 
+   20.   "WERT_BEST_GES"  0.168025 
+   21.          "CHK_IP"  0.167935 
+   22.      "ANUMMERS.3"  0.167932 
+   23. "FLAG_NEWSLETTER"  0.167852 
+   24.     "Z_LAST_NAME"  0.167847 
+   25.    "ANZ_BEST_GES"  0.167847 
+
+Variable Importance: NUM_AS_ROOT:
+    1.     "NEUKUNDE" 11.000000 ################
+    2.    "B_TELEFON"  3.000000 ###
+    3.   "Z_CARD_ART"  3.000000 ###
+    4. "SESSION_TIME"  2.000000 #
+    5.     "TAG_BEST"  2.000000 #
+    6.   "ANUMMERS.2"  1.000000 
+
+Variable Importance: NUM_NODES:
+    1.      "ANUMMERS.0" 199.000000 ################
+    2.    "Z_CARD_VALID" 164.000000 #############
+    3.      "ANUMMERS.2" 89.000000 #######
+    4.      "ANUMMERS.1" 26.000000 ##
+    5.        "NEUKUNDE" 26.000000 ##
+    6.    "SESSION_TIME" 25.000000 #
+    7.         "B_EMAIL" 20.000000 #
+    8.        "TAG_BEST" 15.000000 #
+    9.       "WERT_BEST" 15.000000 #
+   10.        "CHK_LADR" 11.000000 
+   11.       "B_TELEFON" 10.000000 
+   12.      "B_GEBDATUM"  9.000000 
+   13.      "Z_CARD_ART"  9.000000 
+   14.    "MAHN_HOECHST"  7.000000 
+   15.     "DATUM_LBEST"  6.000000 
+   16.       "TIME_BEST"  5.000000 
+   17.       "Z_METHODE"  4.000000 
+   18.      "CHK_COOKIE"  3.000000 
+   19.   "WERT_BEST_GES"  3.000000 
+   20.      "ANUMMERS.3"  2.000000 
+   21.          "CHK_IP"  2.000000 
+   22.    "ANZ_BEST_GES"  1.000000 
+   23.        "CHK_RADR"  1.000000 
+   24. "FLAG_NEWSLETTER"  1.000000 
+   25.     "Z_LAST_NAME"  1.000000 
+
+Variable Importance: SUM_SCORE:
+    1.      "ANUMMERS.0" 2042.613245 ################
+    2.    "Z_CARD_VALID" 1939.585380 ###############
+    3.      "ANUMMERS.2" 1376.294313 ##########
+    4.        "NEUKUNDE" 1120.957241 ########
+    5.        "CHK_LADR" 755.547890 #####
+    6.         "B_EMAIL" 614.523010 ####
+    7.    "SESSION_TIME" 545.557222 ####
+    8.       "WERT_BEST" 399.794620 ###
+    9.      "ANUMMERS.1" 234.188144 #
+   10.       "B_TELEFON" 172.283151 #
+   11.      "Z_CARD_ART" 153.172960 #
+   12.    "MAHN_HOECHST" 119.519217 
+   13.        "TAG_BEST" 118.692119 
+   14.      "CHK_COOKIE" 70.072115 
+   15.          "CHK_IP" 47.927548 
+   16.     "DATUM_LBEST" 42.882095 
+   17.      "B_GEBDATUM" 29.011929 
+   18.       "TIME_BEST" 25.952243 
+   19.        "CHK_RADR" 21.937129 
+   20.   "WERT_BEST_GES" 15.204098 
+   21.       "Z_METHODE" 11.202616 
+   22.     "Z_LAST_NAME"  7.936931 
+   23. "FLAG_NEWSLETTER"  4.260686 
+   24.      "ANUMMERS.3"  3.272058 
+   25.    "ANZ_BEST_GES"  2.420595 
+
+
+
+Loss: BINOMIAL_LOG_LIKELIHOOD
+Validation loss value: 1.30846
+Number of trees per iteration: 1
+Node format: NOT_SET
+Number of trees: 22
+Total number of nodes: 1330
+
+Number of nodes by tree:
+Count: 22 Average: 60.4545 StdDev: 3.08556
+Min: 53 Max: 63 Ignored: 0
+----------------------------------------------
+[ 53, 54) 1   4.55%   4.55% #
+[ 54, 55) 0   0.00%   4.55%
+[ 55, 56) 3  13.64%  18.18% ###
+[ 56, 57) 0   0.00%  18.18%
+[ 57, 58) 0   0.00%  18.18%
+[ 58, 59) 0   0.00%  18.18%
+[ 59, 60) 2   9.09%  27.27% ##
+[ 60, 61) 0   0.00%  27.27%
+[ 61, 62) 7  31.82%  59.09% ########
+[ 62, 63) 0   0.00%  59.09%
+[ 63, 63] 9  40.91% 100.00% ##########
+
+Depth by leafs:
+Count: 676 Average: 4.96302 StdDev: 0.210927
+Min: 3 Max: 5 Ignored: 0
+----------------------------------------------
+[ 3, 4)   3   0.44%   0.44%
+[ 4, 5)  19   2.81%   3.25%
+[ 5, 5] 654  96.75% 100.00% ##########
+
+Number of training obs by leaf:
+Count: 676 Average: 703.642 StdDev: 1479.09
+Min: 5 Max: 11047 Ignored: 0
+----------------------------------------------
+[     5,   557) 502  74.26%  74.26% ##########
+[   557,  1109)  75  11.09%  85.36% #
+[  1109,  1661)  31   4.59%  89.94% #
+[  1661,  2213)  15   2.22%  92.16%
+[  2213,  2765)   7   1.04%  93.20%
+[  2765,  3317)   7   1.04%  94.23%
+[  3317,  3870)   6   0.89%  95.12%
+[  3870,  4422)   3   0.44%  95.56%
+[  4422,  4974)   8   1.18%  96.75%
+[  4974,  5526)   1   0.15%  96.89%
+[  5526,  6078)   2   0.30%  97.19%
+[  6078,  6630)   5   0.74%  97.93%
+[  6630,  7182)   2   0.30%  98.22%
+[  7182,  7735)   4   0.59%  98.82%
+[  7735,  8287)   3   0.44%  99.26%
+[  8287,  8839)   3   0.44%  99.70%
+[  8839,  9391)   0   0.00%  99.70%
+[  9391,  9943)   1   0.15%  99.85%
+[  9943, 10495)   0   0.00%  99.85%
+[ 10495, 11047]   1   0.15% 100.00%
+
+Attribute in nodes:
+	199 : ANUMMERS.0 [CATEGORICAL]
+	164 : Z_CARD_VALID [CATEGORICAL]
+	89 : ANUMMERS.2 [CATEGORICAL]
+	26 : NEUKUNDE [CATEGORICAL]
+	26 : ANUMMERS.1 [CATEGORICAL]
+	25 : SESSION_TIME [NUMERICAL]
+	20 : B_EMAIL [CATEGORICAL]
+	15 : WERT_BEST [NUMERICAL]
+	15 : TAG_BEST [CATEGORICAL]
+	11 : CHK_LADR [CATEGORICAL]
+	10 : B_TELEFON [CATEGORICAL]
+	9 : Z_CARD_ART [CATEGORICAL]
+	9 : B_GEBDATUM [NUMERICAL]
+	7 : MAHN_HOECHST [NUMERICAL]
+	6 : DATUM_LBEST [NUMERICAL]
+	5 : TIME_BEST [NUMERICAL]
+	4 : Z_METHODE [CATEGORICAL]
+	3 : WERT_BEST_GES [NUMERICAL]
+	3 : CHK_COOKIE [CATEGORICAL]
+	2 : CHK_IP [CATEGORICAL]
+	2 : ANUMMERS.3 [CATEGORICAL]
+	1 : Z_LAST_NAME [CATEGORICAL]
+	1 : FLAG_NEWSLETTER [CATEGORICAL]
+	1 : CHK_RADR [CATEGORICAL]
+	1 : ANZ_BEST_GES [NUMERICAL]
+
+Attribute in nodes with depth <= 0:
+	11 : NEUKUNDE [CATEGORICAL]
+	3 : Z_CARD_ART [CATEGORICAL]
+	3 : B_TELEFON [CATEGORICAL]
+	2 : TAG_BEST [CATEGORICAL]
+	2 : SESSION_TIME [NUMERICAL]
+	1 : ANUMMERS.2 [CATEGORICAL]
+
+Attribute in nodes with depth <= 1:
+	12 : NEUKUNDE [CATEGORICAL]
+	10 : CHK_LADR [CATEGORICAL]
+	9 : ANUMMERS.2 [CATEGORICAL]
+	6 : Z_CARD_VALID [CATEGORICAL]
+	6 : B_EMAIL [CATEGORICAL]
+	5 : Z_CARD_ART [CATEGORICAL]
+	5 : B_TELEFON [CATEGORICAL]
+	5 : ANUMMERS.0 [CATEGORICAL]
+	4 : SESSION_TIME [NUMERICAL]
+	3 : TAG_BEST [CATEGORICAL]
+	1 : WERT_BEST [NUMERICAL]
+
+Attribute in nodes with depth <= 2:
+	34 : Z_CARD_VALID [CATEGORICAL]
+	29 : ANUMMERS.2 [CATEGORICAL]
+	21 : ANUMMERS.0 [CATEGORICAL]
+	16 : B_EMAIL [CATEGORICAL]
+	12 : NEUKUNDE [CATEGORICAL]
+	10 : CHK_LADR [CATEGORICAL]
+	9 : SESSION_TIME [NUMERICAL]
+	7 : Z_CARD_ART [CATEGORICAL]
+	7 : B_TELEFON [CATEGORICAL]
+	4 : WERT_BEST [NUMERICAL]
+	3 : TAG_BEST [CATEGORICAL]
+	1 : CHK_RADR [CATEGORICAL]
+	1 : ANUMMERS.1 [CATEGORICAL]
+
+Attribute in nodes with depth <= 3:
+	80 : ANUMMERS.0 [CATEGORICAL]
+	74 : Z_CARD_VALID [CATEGORICAL]
+	54 : ANUMMERS.2 [CATEGORICAL]
+	20 : SESSION_TIME [NUMERICAL]
+	19 : B_EMAIL [CATEGORICAL]
+	14 : NEUKUNDE [CATEGORICAL]
+	12 : ANUMMERS.1 [CATEGORICAL]
+	11 : CHK_LADR [CATEGORICAL]
+	9 : B_TELEFON [CATEGORICAL]
+	7 : Z_CARD_ART [CATEGORICAL]
+	7 : WERT_BEST [NUMERICAL]
+	5 : TAG_BEST [CATEGORICAL]
+	5 : B_GEBDATUM [NUMERICAL]
+	3 : MAHN_HOECHST [NUMERICAL]
+	3 : DATUM_LBEST [NUMERICAL]
+	3 : CHK_COOKIE [CATEGORICAL]
+	1 : CHK_RADR [CATEGORICAL]
+
+Attribute in nodes with depth <= 5:
+	199 : ANUMMERS.0 [CATEGORICAL]
+	164 : Z_CARD_VALID [CATEGORICAL]
+	89 : ANUMMERS.2 [CATEGORICAL]
+	26 : NEUKUNDE [CATEGORICAL]
+	26 : ANUMMERS.1 [CATEGORICAL]
+	25 : SESSION_TIME [NUMERICAL]
+	20 : B_EMAIL [CATEGORICAL]
+	15 : WERT_BEST [NUMERICAL]
+	15 : TAG_BEST [CATEGORICAL]
+	11 : CHK_LADR [CATEGORICAL]
+	10 : B_TELEFON [CATEGORICAL]
+	9 : Z_CARD_ART [CATEGORICAL]
+	9 : B_GEBDATUM [NUMERICAL]
+	7 : MAHN_HOECHST [NUMERICAL]
+	6 : DATUM_LBEST [NUMERICAL]
+	5 : TIME_BEST [NUMERICAL]
+	4 : Z_METHODE [CATEGORICAL]
+	3 : WERT_BEST_GES [NUMERICAL]
+	3 : CHK_COOKIE [CATEGORICAL]
+	2 : CHK_IP [CATEGORICAL]
+	2 : ANUMMERS.3 [CATEGORICAL]
+	1 : Z_LAST_NAME [CATEGORICAL]
+	1 : FLAG_NEWSLETTER [CATEGORICAL]
+	1 : CHK_RADR [CATEGORICAL]
+	1 : ANZ_BEST_GES [NUMERICAL]
+
+Condition type in nodes:
+	570 : ContainsBitmapCondition
+	71 : HigherCondition
+	13 : ContainsCondition
+Condition type in nodes with depth <= 0:
+	20 : ContainsBitmapCondition
+	2 : HigherCondition
+Condition type in nodes with depth <= 1:
+	61 : ContainsBitmapCondition
+	5 : HigherCondition
+Condition type in nodes with depth <= 2:
+	141 : ContainsBitmapCondition
+	13 : HigherCondition
+Condition type in nodes with depth <= 3:
+	288 : ContainsBitmapCondition
+	38 : HigherCondition
+	1 : ContainsCondition
+Condition type in nodes with depth <= 5:
+	570 : ContainsBitmapCondition
+	71 : HigherCondition
+	13 : ContainsCondition
+
+Training logs:
+Number of iteration to final model: 22
+	Iter:1 train-loss:1.346449 valid-loss:1.364593  train-accuracy:0.699800 valid-accuracy:0.628546
+	Iter:2 train-loss:1.314476 valid-loss:1.350140  train-accuracy:0.701925 valid-accuracy:0.629912
+	Iter:3 train-loss:1.284990 valid-loss:1.336451  train-accuracy:0.714304 valid-accuracy:0.624427
+	Iter:4 train-loss:1.262246 valid-loss:1.328085  train-accuracy:0.706930 valid-accuracy:0.626629
+	Iter:5 train-loss:1.242382 valid-loss:1.325045  train-accuracy:0.705486 valid-accuracy:0.628464
+	Iter:6 train-loss:1.224920 valid-loss:1.325004  train-accuracy:0.707631 valid-accuracy:0.628913
+	Iter:16 train-loss:1.081153 valid-loss:1.315377  train-accuracy:0.756727 valid-accuracy:0.635763
+	Iter:26 train-loss:0.970371 valid-loss:1.321346  train-accuracy:0.807838 valid-accuracy:0.648363
+	Iter:36 train-loss:0.884023 valid-loss:1.341742  train-accuracy:0.854902 valid-accuracy:0.655316
+	Iter:46 train-loss:0.810790 valid-loss:1.370504  train-accuracy:0.883954 valid-accuracy:0.630951
+ 
