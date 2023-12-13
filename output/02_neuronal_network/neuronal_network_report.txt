@@ -1,0 +1,291 @@
+Model: "model" 
+__________________________________________________________________________________________________ 
+ Layer (type)                Output Shape                 Param #   Connected to                   
+================================================================================================== 
+ B_EMAIL (InputLayer)        [(None, 1)]                  0         []                             
+                                                                                                   
+ B_TELEFON (InputLayer)      [(None, 1)]                  0         []                             
+                                                                                                   
+ FLAG_LRIDENTISCH (InputLay  [(None, 1)]                  0         []                             
+ er)                                                                                               
+                                                                                                   
+ FLAG_NEWSLETTER (InputLaye  [(None, 1)]                  0         []                             
+ r)                                                                                                
+                                                                                                   
+ Z_METHODE (InputLayer)      [(None, 1)]                  0         []                             
+                                                                                                   
+ Z_CARD_ART (InputLayer)     [(None, 1)]                  0         []                             
+                                                                                                   
+ Z_CARD_VALID (InputLayer)   [(None, 1)]                  0         []                             
+                                                                                                   
+ Z_LAST_NAME (InputLayer)    [(None, 1)]                  0         []                             
+                                                                                                   
+ TAG_BEST (InputLayer)       [(None, 1)]                  0         []                             
+                                                                                                   
+ CHK_LADR (InputLayer)       [(None, 1)]                  0         []                             
+                                                                                                   
+ CHK_RADR (InputLayer)       [(None, 1)]                  0         []                             
+                                                                                                   
+ CHK_KTO (InputLayer)        [(None, 1)]                  0         []                             
+                                                                                                   
+ CHK_CARD (InputLayer)       [(None, 1)]                  0         []                             
+                                                                                                   
+ CHK_COOKIE (InputLayer)     [(None, 1)]                  0         []                             
+                                                                                                   
+ CHK_IP (InputLayer)         [(None, 1)]                  0         []                             
+                                                                                                   
+ FAIL_LPLZ (InputLayer)      [(None, 1)]                  0         []                             
+                                                                                                   
+ FAIL_LORT (InputLayer)      [(None, 1)]                  0         []                             
+                                                                                                   
+ FAIL_LPLZORTMATCH (InputLa  [(None, 1)]                  0         []                             
+ yer)                                                                                              
+                                                                                                   
+ FAIL_RPLZ (InputLayer)      [(None, 1)]                  0         []                             
+                                                                                                   
+ FAIL_RORT (InputLayer)      [(None, 1)]                  0         []                             
+                                                                                                   
+ FAIL_RPLZORTMATCH (InputLa  [(None, 1)]                  0         []                             
+ yer)                                                                                              
+                                                                                                   
+ NEUKUNDE (InputLayer)       [(None, 1)]                  0         []                             
+                                                                                                   
+ ANUMMERS (InputLayer)       [(None, 10)]                 0         []                             
+                                                                                                   
+ WERT_BEST (InputLayer)      [(None, 1)]                  0         []                             
+                                                                                                   
+ ANZ_BEST (InputLayer)       [(None, 1)]                  0         []                             
+                                                                                                   
+ SESSION_TIME (InputLayer)   [(None, 1)]                  0         []                             
+                                                                                                   
+ ANZ_BEST_GES (InputLayer)   [(None, 1)]                  0         []                             
+                                                                                                   
+ WERT_BEST_GES (InputLayer)  [(None, 1)]                  0         []                             
+                                                                                                   
+ MAHN_AKT (InputLayer)       [(None, 1)]                  0         []                             
+                                                                                                   
+ MAHN_HOECHST (InputLayer)   [(None, 1)]                  0         []                             
+                                                                                                   
+ string_lookup (StringLooku  (None, 1)                    0         ['B_EMAIL[0][0]']              
+ p)                                                                                                
+                                                                                                   
+ string_lookup_1 (StringLoo  (None, 1)                    0         ['B_TELEFON[0][0]']            
+ kup)                                                                                              
+                                                                                                   
+ string_lookup_2 (StringLoo  (None, 1)                    0         ['FLAG_LRIDENTISCH[0][0]']     
+ kup)                                                                                              
+                                                                                                   
+ string_lookup_3 (StringLoo  (None, 1)                    0         ['FLAG_NEWSLETTER[0][0]']      
+ kup)                                                                                              
+                                                                                                   
+ string_lookup_4 (StringLoo  (None, 1)                    0         ['Z_METHODE[0][0]']            
+ kup)                                                                                              
+                                                                                                   
+ string_lookup_5 (StringLoo  (None, 1)                    0         ['Z_CARD_ART[0][0]']           
+ kup)                                                                                              
+                                                                                                   
+ string_lookup_6 (StringLoo  (None, 1)                    0         ['Z_CARD_VALID[0][0]']         
+ kup)                                                                                              
+                                                                                                   
+ string_lookup_7 (StringLoo  (None, 1)                    0         ['Z_LAST_NAME[0][0]']          
+ kup)                                                                                              
+                                                                                                   
+ string_lookup_8 (StringLoo  (None, 1)                    0         ['TAG_BEST[0][0]']             
+ kup)                                                                                              
+                                                                                                   
+ string_lookup_9 (StringLoo  (None, 1)                    0         ['CHK_LADR[0][0]']             
+ kup)                                                                                              
+                                                                                                   
+ string_lookup_10 (StringLo  (None, 1)                    0         ['CHK_RADR[0][0]']             
+ okup)                                                                                             
+                                                                                                   
+ string_lookup_11 (StringLo  (None, 1)                    0         ['CHK_KTO[0][0]']              
+ okup)                                                                                             
+                                                                                                   
+ string_lookup_12 (StringLo  (None, 1)                    0         ['CHK_CARD[0][0]']             
+ okup)                                                                                             
+                                                                                                   
+ string_lookup_13 (StringLo  (None, 1)                    0         ['CHK_COOKIE[0][0]']           
+ okup)                                                                                             
+                                                                                                   
+ string_lookup_14 (StringLo  (None, 1)                    0         ['CHK_IP[0][0]']               
+ okup)                                                                                             
+                                                                                                   
+ string_lookup_15 (StringLo  (None, 1)                    0         ['FAIL_LPLZ[0][0]']            
+ okup)                                                                                             
+                                                                                                   
+ string_lookup_16 (StringLo  (None, 1)                    0         ['FAIL_LORT[0][0]']            
+ okup)                                                                                             
+                                                                                                   
+ string_lookup_17 (StringLo  (None, 1)                    0         ['FAIL_LPLZORTMATCH[0][0]']    
+ okup)                                                                                             
+                                                                                                   
+ string_lookup_18 (StringLo  (None, 1)                    0         ['FAIL_RPLZ[0][0]']            
+ okup)                                                                                             
+                                                                                                   
+ string_lookup_19 (StringLo  (None, 1)                    0         ['FAIL_RORT[0][0]']            
+ okup)                                                                                             
+                                                                                                   
+ string_lookup_20 (StringLo  (None, 1)                    0         ['FAIL_RPLZORTMATCH[0][0]']    
+ okup)                                                                                             
+                                                                                                   
+ string_lookup_21 (StringLo  (None, 1)                    0         ['NEUKUNDE[0][0]']             
+ okup)                                                                                             
+                                                                                                   
+ B_GEBDATUM (InputLayer)     [(None, 1)]                  0         []                             
+                                                                                                   
+ TIME_BEST (InputLayer)      [(None, 1)]                  0         []                             
+                                                                                                   
+ DATUM_LBEST (InputLayer)    [(None, 1)]                  0         []                             
+                                                                                                   
+ string_lookup_22 (StringLo  (None, 10)                   0         ['ANUMMERS[0][0]']             
+ okup)                                                                                             
+                                                                                                   
+ normalization (Normalizati  (None, 1)                    3         ['WERT_BEST[0][0]']            
+ on)                                                                                               
+                                                                                                   
+ normalization_1 (Normaliza  (None, 1)                    3         ['ANZ_BEST[0][0]']             
+ tion)                                                                                             
+                                                                                                   
+ normalization_2 (Normaliza  (None, 1)                    3         ['SESSION_TIME[0][0]']         
+ tion)                                                                                             
+                                                                                                   
+ normalization_3 (Normaliza  (None, 1)                    3         ['ANZ_BEST_GES[0][0]']         
+ tion)                                                                                             
+                                                                                                   
+ normalization_4 (Normaliza  (None, 1)                    3         ['WERT_BEST_GES[0][0]']        
+ tion)                                                                                             
+                                                                                                   
+ normalization_5 (Normaliza  (None, 1)                    3         ['MAHN_AKT[0][0]']             
+ tion)                                                                                             
+                                                                                                   
+ normalization_6 (Normaliza  (None, 1)                    3         ['MAHN_HOECHST[0][0]']         
+ tion)                                                                                             
+                                                                                                   
+ category_encoding (Categor  (None, 3)                    0         ['string_lookup[0][0]']        
+ yEncoding)                                                                                        
+                                                                                                   
+ category_encoding_1 (Categ  (None, 3)                    0         ['string_lookup_1[0][0]']      
+ oryEncoding)                                                                                      
+                                                                                                   
+ category_encoding_2 (Categ  (None, 3)                    0         ['string_lookup_2[0][0]']      
+ oryEncoding)                                                                                      
+                                                                                                   
+ category_encoding_3 (Categ  (None, 3)                    0         ['string_lookup_3[0][0]']      
+ oryEncoding)                                                                                      
+                                                                                                   
+ category_encoding_4 (Categ  (None, 5)                    0         ['string_lookup_4[0][0]']      
+ oryEncoding)                                                                                      
+                                                                                                   
+ category_encoding_5 (Categ  (None, 6)                    0         ['string_lookup_5[0][0]']      
+ oryEncoding)                                                                                      
+                                                                                                   
+ category_encoding_6 (Categ  (None, 25)                   0         ['string_lookup_6[0][0]']      
+ oryEncoding)                                                                                      
+                                                                                                   
+ category_encoding_7 (Categ  (None, 4)                    0         ['string_lookup_7[0][0]']      
+ oryEncoding)                                                                                      
+                                                                                                   
+ category_encoding_8 (Categ  (None, 8)                    0         ['string_lookup_8[0][0]']      
+ oryEncoding)                                                                                      
+                                                                                                   
+ category_encoding_9 (Categ  (None, 3)                    0         ['string_lookup_9[0][0]']      
+ oryEncoding)                                                                                      
+                                                                                                   
+ category_encoding_10 (Cate  (None, 3)                    0         ['string_lookup_10[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ category_encoding_11 (Cate  (None, 3)                    0         ['string_lookup_11[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ category_encoding_12 (Cate  (None, 3)                    0         ['string_lookup_12[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ category_encoding_13 (Cate  (None, 3)                    0         ['string_lookup_13[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ category_encoding_14 (Cate  (None, 3)                    0         ['string_lookup_14[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ category_encoding_15 (Cate  (None, 3)                    0         ['string_lookup_15[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ category_encoding_16 (Cate  (None, 3)                    0         ['string_lookup_16[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ category_encoding_17 (Cate  (None, 3)                    0         ['string_lookup_17[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ category_encoding_18 (Cate  (None, 3)                    0         ['string_lookup_18[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ category_encoding_19 (Cate  (None, 3)                    0         ['string_lookup_19[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ category_encoding_20 (Cate  (None, 3)                    0         ['string_lookup_20[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ category_encoding_21 (Cate  (None, 3)                    0         ['string_lookup_21[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ normalization_7 (Normaliza  (None, 1)                    3         ['B_GEBDATUM[0][0]']           
+ tion)                                                                                             
+                                                                                                   
+ normalization_8 (Normaliza  (None, 1)                    3         ['TIME_BEST[0][0]']            
+ tion)                                                                                             
+                                                                                                   
+ normalization_9 (Normaliza  (None, 1)                    3         ['DATUM_LBEST[0][0]']          
+ tion)                                                                                             
+                                                                                                   
+ category_encoding_22 (Cate  (None, 100)                  0         ['string_lookup_22[0][0]']     
+ goryEncoding)                                                                                     
+                                                                                                   
+ concatenate (Concatenate)   (None, 209)                  0         ['normalization[0][0]',        
+                                                                     'normalization_1[0][0]',      
+                                                                     'normalization_2[0][0]',      
+                                                                     'normalization_3[0][0]',      
+                                                                     'normalization_4[0][0]',      
+                                                                     'normalization_5[0][0]',      
+                                                                     'normalization_6[0][0]',      
+                                                                     'category_encoding[0][0]',    
+                                                                     'category_encoding_1[0][0]',  
+                                                                     'category_encoding_2[0][0]',  
+                                                                     'category_encoding_3[0][0]',  
+                                                                     'category_encoding_4[0][0]',  
+                                                                     'category_encoding_5[0][0]',  
+                                                                     'category_encoding_6[0][0]',  
+                                                                     'category_encoding_7[0][0]',  
+                                                                     'category_encoding_8[0][0]',  
+                                                                     'category_encoding_9[0][0]',  
+                                                                     'category_encoding_10[0][0]', 
+                                                                     'category_encoding_11[0][0]', 
+                                                                     'category_encoding_12[0][0]', 
+                                                                     'category_encoding_13[0][0]', 
+                                                                     'category_encoding_14[0][0]', 
+                                                                     'category_encoding_15[0][0]', 
+                                                                     'category_encoding_16[0][0]', 
+                                                                     'category_encoding_17[0][0]', 
+                                                                     'category_encoding_18[0][0]', 
+                                                                     'category_encoding_19[0][0]', 
+                                                                     'category_encoding_20[0][0]', 
+                                                                     'category_encoding_21[0][0]', 
+                                                                     'normalization_7[0][0]',      
+                                                                     'normalization_8[0][0]',      
+                                                                     'normalization_9[0][0]',      
+                                                                     'category_encoding_22[0][0]'] 
+                                                                                                   
+ dense (Dense)               (None, 128)                  26880     ['concatenate[0][0]']          
+                                                                                                   
+ dropout (Dropout)           (None, 128)                  0         ['dense[0][0]']                
+                                                                                                   
+ dense_1 (Dense)             (None, 32)                   4128      ['dropout[0][0]']              
+                                                                                                   
+ dropout_1 (Dropout)         (None, 32)                   0         ['dense_1[0][0]']              
+                                                                                                   
+ dense_2 (Dense)             (None, 1)                    33        ['dropout_1[0][0]']            
+                                                                                                   
+================================================================================================== 
+Total params: 31071 (121.41 KB) 
+Trainable params: 31041 (121.25 KB) 
+Non-trainable params: 30 (160.00 Byte) 
+__________________________________________________________________________________________________ 
