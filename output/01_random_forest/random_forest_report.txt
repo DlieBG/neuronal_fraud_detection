@@ -1,0 +1,603 @@
+Model: "random_forest_model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+=================================================================
+Total params: 1 (1.00 Byte)
+Trainable params: 0 (0.00 Byte)
+Non-trainable params: 1 (1.00 Byte)
+_________________________________________________________________
+Type: "RANDOM_FOREST"
+Task: CLASSIFICATION
+Label: "__LABEL"
+
+Input Features (47):
+	ANUMMERS.0
+	ANUMMERS.1
+	ANUMMERS.2
+	ANUMMERS.3
+	ANUMMERS.4
+	ANUMMERS.5
+	ANUMMERS.6
+	ANUMMERS.7
+	ANUMMERS.8
+	ANUMMERS.9
+	ANZ_BEST
+	ANZ_BEST_GES
+	B_EMAIL
+	B_GEBDATUM.0
+	B_GEBDATUM.1
+	B_GEBDATUM.2
+	B_TELEFON
+	CHK_CARD
+	CHK_COOKIE
+	CHK_IP
+	CHK_KTO
+	CHK_LADR
+	CHK_RADR
+	DATUM_LBEST.0
+	DATUM_LBEST.1
+	DATUM_LBEST.2
+	FAIL_LORT
+	FAIL_LPLZ
+	FAIL_LPLZORTMATCH
+	FAIL_RORT
+	FAIL_RPLZ
+	FAIL_RPLZORTMATCH
+	FLAG_LRIDENTISCH
+	FLAG_NEWSLETTER
+	MAHN_AKT
+	MAHN_HOECHST
+	NEUKUNDE
+	SESSION_TIME
+	TAG_BEST
+	TIME_BEST.0
+	TIME_BEST.1
+	WERT_BEST
+	WERT_BEST_GES
+	Z_CARD_ART
+	Z_CARD_VALID
+	Z_LAST_NAME
+	Z_METHODE
+
+Trained with weights
+
+Variable Importance: INV_MEAN_MIN_DEPTH:
+    1.      "Z_CARD_VALID"  0.166470 ################
+    2.           "B_EMAIL"  0.132296 #########
+    3.      "SESSION_TIME"  0.130520 #########
+    4.         "WERT_BEST"  0.120092 #######
+    5.        "Z_CARD_ART"  0.109264 #####
+    6.          "NEUKUNDE"  0.108799 #####
+    7.          "TAG_BEST"  0.106882 #####
+    8.        "ANUMMERS.0"  0.105152 #####
+    9.     "WERT_BEST_GES"  0.101220 ####
+   10.         "B_TELEFON"  0.098551 ###
+   11.     "DATUM_LBEST.0"  0.096785 ###
+   12.          "CHK_LADR"  0.093096 ##
+   13.         "Z_METHODE"  0.092753 ##
+   14.      "ANZ_BEST_GES"  0.092548 ##
+   15.       "TIME_BEST.1"  0.092393 ##
+   16.      "B_GEBDATUM.0"  0.089793 ##
+   17.       "TIME_BEST.0"  0.088320 ##
+   18.     "DATUM_LBEST.2"  0.087514 #
+   19.     "DATUM_LBEST.1"  0.086669 #
+   20.        "ANUMMERS.1"  0.085530 #
+   21.        "CHK_COOKIE"  0.084508 #
+   22.      "MAHN_HOECHST"  0.081986 
+   23.      "B_GEBDATUM.1"  0.081858 
+   24.      "B_GEBDATUM.2"  0.081468 
+   25.       "Z_LAST_NAME"  0.081413 
+   26.          "MAHN_AKT"  0.081409 
+   27.        "ANUMMERS.2"  0.081074 
+   28.   "FLAG_NEWSLETTER"  0.081065 
+   29.         "FAIL_LORT"  0.080094 
+   30.            "CHK_IP"  0.080000 
+   31.          "CHK_RADR"  0.079802 
+   32.          "ANZ_BEST"  0.079791 
+   33.         "FAIL_RORT"  0.078129 
+   34.        "ANUMMERS.3"  0.078078 
+   35.  "FLAG_LRIDENTISCH"  0.077856 
+   36.        "ANUMMERS.4"  0.077201 
+   37. "FAIL_RPLZORTMATCH"  0.077175 
+   38.         "FAIL_LPLZ"  0.077153 
+   39.           "CHK_KTO"  0.077086 
+   40.         "FAIL_RPLZ"  0.076936 
+   41.          "CHK_CARD"  0.076922 
+   42.        "ANUMMERS.5"  0.076868 
+   43. "FAIL_LPLZORTMATCH"  0.076862 
+   44.        "ANUMMERS.6"  0.076837 
+   45.        "ANUMMERS.7"  0.076784 
+
+Variable Importance: NUM_AS_ROOT:
+    1.        "NEUKUNDE" 46.000000 ################
+    2.   "DATUM_LBEST.0" 44.000000 ###############
+    3.   "WERT_BEST_GES" 42.000000 ##############
+    4.    "ANZ_BEST_GES" 37.000000 ############
+    5.         "B_EMAIL" 25.000000 ########
+    6.   "DATUM_LBEST.2" 24.000000 ########
+    7.   "DATUM_LBEST.1" 18.000000 ######
+    8.    "SESSION_TIME" 17.000000 #####
+    9.      "Z_CARD_ART"  8.000000 ##
+   10.       "Z_METHODE"  8.000000 ##
+   11.       "WERT_BEST"  7.000000 ##
+   12.    "Z_CARD_VALID"  5.000000 #
+   13.       "B_TELEFON"  4.000000 #
+   14.        "TAG_BEST"  4.000000 #
+   15.        "CHK_LADR"  3.000000 
+   16.    "B_GEBDATUM.0"  2.000000 
+   17. "FLAG_NEWSLETTER"  2.000000 
+   18.      "ANUMMERS.0"  1.000000 
+   19.      "ANUMMERS.1"  1.000000 
+   20.      "CHK_COOKIE"  1.000000 
+   21.       "FAIL_LORT"  1.000000 
+
+Variable Importance: NUM_NODES:
+    1.      "Z_CARD_VALID" 31525.000000 ################
+    2.        "ANUMMERS.0" 13773.000000 ######
+    3.          "TAG_BEST" 12894.000000 ######
+    4.       "TIME_BEST.1" 11514.000000 #####
+    5.         "WERT_BEST" 11032.000000 #####
+    6.      "B_GEBDATUM.0" 9921.000000 #####
+    7.       "TIME_BEST.0" 9535.000000 ####
+    8.      "SESSION_TIME" 8700.000000 ####
+    9.      "B_GEBDATUM.1" 5047.000000 ##
+   10.      "B_GEBDATUM.2" 4949.000000 ##
+   11.     "WERT_BEST_GES" 3917.000000 #
+   12.        "Z_CARD_ART" 3850.000000 #
+   13.        "ANUMMERS.1" 3718.000000 #
+   14.         "Z_METHODE" 2611.000000 #
+   15.         "B_TELEFON" 1942.000000 
+   16.     "DATUM_LBEST.1" 1853.000000 
+   17.     "DATUM_LBEST.2" 1822.000000 
+   18.           "B_EMAIL" 1533.000000 
+   19.     "DATUM_LBEST.0" 1514.000000 
+   20.        "ANUMMERS.2" 1490.000000 
+   21.       "Z_LAST_NAME" 1322.000000 
+   22.  "FLAG_LRIDENTISCH" 1160.000000 
+   23.          "ANZ_BEST" 1120.000000 
+   24.      "MAHN_HOECHST" 840.000000 
+   25.          "CHK_LADR" 833.000000 
+   26.      "ANZ_BEST_GES" 626.000000 
+   27.          "MAHN_AKT" 502.000000 
+   28.   "FLAG_NEWSLETTER" 498.000000 
+   29.        "ANUMMERS.3" 476.000000 
+   30.          "NEUKUNDE" 382.000000 
+   31.        "CHK_COOKIE" 357.000000 
+   32.         "FAIL_LORT" 216.000000 
+   33.            "CHK_IP" 213.000000 
+   34.          "CHK_RADR" 192.000000 
+   35.         "FAIL_RORT" 163.000000 
+   36.        "ANUMMERS.4" 134.000000 
+   37. "FAIL_RPLZORTMATCH" 84.000000 
+   38.         "FAIL_RPLZ" 81.000000 
+   39.         "FAIL_LPLZ" 77.000000 
+   40.           "CHK_KTO" 56.000000 
+   41.          "CHK_CARD" 32.000000 
+   42. "FAIL_LPLZORTMATCH" 31.000000 
+   43.        "ANUMMERS.5" 24.000000 
+   44.        "ANUMMERS.6" 16.000000 
+   45.        "ANUMMERS.7"  5.000000 
+
+Variable Importance: SUM_SCORE:
+    1.      "Z_CARD_VALID" 1173343.894917 ################
+    2.        "ANUMMERS.0" 231926.533243 ###
+    3.          "TAG_BEST" 229512.271895 ###
+    4.         "WERT_BEST" 206939.420665 ##
+    5.      "SESSION_TIME" 178135.731834 ##
+    6.       "TIME_BEST.1" 169038.394169 ##
+    7.      "B_GEBDATUM.0" 145329.886527 #
+    8.       "TIME_BEST.0" 139411.522321 #
+    9.     "WERT_BEST_GES" 101025.151700 #
+   10.           "B_EMAIL" 94801.593192 #
+   11.          "CHK_LADR" 94712.160161 #
+   12.        "Z_CARD_ART" 84249.367840 #
+   13.      "B_GEBDATUM.1" 68905.253710 
+   14.      "B_GEBDATUM.2" 66889.162834 
+   15.        "ANUMMERS.1" 60364.381367 
+   16.          "NEUKUNDE" 52941.035881 
+   17.     "DATUM_LBEST.0" 51512.034464 
+   18.         "B_TELEFON" 48733.631093 
+   19.         "Z_METHODE" 48163.378304 
+   20.     "DATUM_LBEST.2" 40076.641565 
+   21.     "DATUM_LBEST.1" 39646.445331 
+   22.      "ANZ_BEST_GES" 34381.239836 
+   23.        "ANUMMERS.2" 23926.625949 
+   24.        "CHK_COOKIE" 23011.822016 
+   25.       "Z_LAST_NAME" 19585.997567 
+   26.      "MAHN_HOECHST" 19497.718330 
+   27.          "ANZ_BEST" 17922.821019 
+   28.  "FLAG_LRIDENTISCH" 15100.565849 
+   29.          "MAHN_AKT" 14673.222399 
+   30.   "FLAG_NEWSLETTER" 9169.560606 
+   31.            "CHK_IP" 8851.721763 
+   32.        "ANUMMERS.3" 7914.350798 
+   33.          "CHK_RADR" 7530.595810 
+   34.         "FAIL_LORT" 5745.419408 
+   35.         "FAIL_RORT" 4012.774682 
+   36.        "ANUMMERS.4" 2129.671214 
+   37.         "FAIL_LPLZ" 1934.101723 
+   38.           "CHK_KTO" 1440.059139 
+   39.         "FAIL_RPLZ" 1385.271571 
+   40. "FAIL_RPLZORTMATCH" 1046.764881 
+   41. "FAIL_LPLZORTMATCH" 596.037437 
+   42.          "CHK_CARD" 573.544838 
+   43.        "ANUMMERS.5" 369.398358 
+   44.        "ANUMMERS.6" 339.669716 
+   45.        "ANUMMERS.7" 101.029783 
+
+
+
+Winner takes all: true
+Out-of-bag evaluation: accuracy:0.518453 logloss:0.917733
+Number of trees: 300
+Total number of nodes: 305460
+
+Number of nodes by tree:
+Count: 300 Average: 1018.2 StdDev: 90.3357
+Min: 683 Max: 1251 Ignored: 0
+----------------------------------------------
+[  683,  711)  1   0.33%   0.33%
+[  711,  739)  0   0.00%   0.33%
+[  739,  768)  0   0.00%   0.33%
+[  768,  796)  0   0.00%   0.33%
+[  796,  825)  1   0.33%   0.67%
+[  825,  853)  8   2.67%   3.33% ##
+[  853,  882) 10   3.33%   6.67% ##
+[  882,  910) 14   4.67%  11.33% ###
+[  910,  939) 23   7.67%  19.00% #####
+[  939,  967) 24   8.00%  27.00% ######
+[  967,  995) 36  12.00%  39.00% #########
+[  995, 1024) 42  14.00%  53.00% ##########
+[ 1024, 1052) 36  12.00%  65.00% #########
+[ 1052, 1081) 31  10.33%  75.33% #######
+[ 1081, 1109) 24   8.00%  83.33% ######
+[ 1109, 1138) 22   7.33%  90.67% #####
+[ 1138, 1166)  9   3.00%  93.67% ##
+[ 1166, 1195) 10   3.33%  97.00% ##
+[ 1195, 1223)  6   2.00%  99.00% #
+[ 1223, 1251]  3   1.00% 100.00% #
+
+Depth by leafs:
+Count: 152880 Average: 12.0326 StdDev: 2.70701
+Min: 2 Max: 15 Ignored: 0
+----------------------------------------------
+[  2,  3)    14   0.01%   0.01%
+[  3,  4)   190   0.12%   0.13%
+[  4,  5)   733   0.48%   0.61%
+[  5,  6)  1732   1.13%   1.75%
+[  6,  7)  3367   2.20%   3.95% #
+[  7,  8)  5400   3.53%   7.48% #
+[  8,  9)  7490   4.90%  12.38% ##
+[  9, 10)  9945   6.51%  18.88% ###
+[ 10, 11) 12836   8.40%  27.28% ###
+[ 11, 12) 15607  10.21%  37.49% ####
+[ 12, 13) 17957  11.75%  49.24% #####
+[ 13, 14) 19761  12.93%  62.16% #####
+[ 14, 15) 20204  13.22%  75.38% #####
+[ 15, 15] 37644  24.62% 100.00% ##########
+
+Number of training obs by leaf:
+Count: 152880 Average: 47.0958 StdDev: 100.869
+Min: 5 Max: 3089 Ignored: 0
+----------------------------------------------
+[    5,  159) 142362  93.12%  93.12% ##########
+[  159,  313)   6619   4.33%  97.45%
+[  313,  467)   2103   1.38%  98.83%
+[  467,  622)    919   0.60%  99.43%
+[  622,  776)    422   0.28%  99.70%
+[  776,  930)    217   0.14%  99.84%
+[  930, 1084)    102   0.07%  99.91%
+[ 1084, 1239)     53   0.03%  99.95%
+[ 1239, 1393)     25   0.02%  99.96%
+[ 1393, 1547)     16   0.01%  99.97%
+[ 1547, 1701)     17   0.01%  99.98%
+[ 1701, 1856)     11   0.01%  99.99%
+[ 1856, 2010)      2   0.00%  99.99%
+[ 2010, 2164)      4   0.00%  99.99%
+[ 2164, 2318)      4   0.00% 100.00%
+[ 2318, 2473)      1   0.00% 100.00%
+[ 2473, 2627)      0   0.00% 100.00%
+[ 2627, 2781)      1   0.00% 100.00%
+[ 2781, 2935)      1   0.00% 100.00%
+[ 2935, 3089]      1   0.00% 100.00%
+
+Attribute in nodes:
+	31525 : Z_CARD_VALID [CATEGORICAL]
+	13773 : ANUMMERS.0 [NUMERICAL]
+	12894 : TAG_BEST [CATEGORICAL]
+	11514 : TIME_BEST.1 [NUMERICAL]
+	11032 : WERT_BEST [NUMERICAL]
+	9921 : B_GEBDATUM.0 [NUMERICAL]
+	9535 : TIME_BEST.0 [NUMERICAL]
+	8700 : SESSION_TIME [NUMERICAL]
+	5047 : B_GEBDATUM.1 [NUMERICAL]
+	4949 : B_GEBDATUM.2 [NUMERICAL]
+	3917 : WERT_BEST_GES [NUMERICAL]
+	3850 : Z_CARD_ART [CATEGORICAL]
+	3718 : ANUMMERS.1 [NUMERICAL]
+	2611 : Z_METHODE [CATEGORICAL]
+	1942 : B_TELEFON [CATEGORICAL]
+	1853 : DATUM_LBEST.1 [NUMERICAL]
+	1822 : DATUM_LBEST.2 [NUMERICAL]
+	1533 : B_EMAIL [CATEGORICAL]
+	1514 : DATUM_LBEST.0 [NUMERICAL]
+	1490 : ANUMMERS.2 [NUMERICAL]
+	1322 : Z_LAST_NAME [CATEGORICAL]
+	1160 : FLAG_LRIDENTISCH [CATEGORICAL]
+	1120 : ANZ_BEST [NUMERICAL]
+	840 : MAHN_HOECHST [NUMERICAL]
+	833 : CHK_LADR [CATEGORICAL]
+	626 : ANZ_BEST_GES [NUMERICAL]
+	502 : MAHN_AKT [NUMERICAL]
+	498 : FLAG_NEWSLETTER [CATEGORICAL]
+	476 : ANUMMERS.3 [NUMERICAL]
+	382 : NEUKUNDE [CATEGORICAL]
+	357 : CHK_COOKIE [CATEGORICAL]
+	216 : FAIL_LORT [CATEGORICAL]
+	213 : CHK_IP [CATEGORICAL]
+	192 : CHK_RADR [CATEGORICAL]
+	163 : FAIL_RORT [CATEGORICAL]
+	134 : ANUMMERS.4 [NUMERICAL]
+	84 : FAIL_RPLZORTMATCH [CATEGORICAL]
+	81 : FAIL_RPLZ [CATEGORICAL]
+	77 : FAIL_LPLZ [CATEGORICAL]
+	56 : CHK_KTO [CATEGORICAL]
+	32 : CHK_CARD [CATEGORICAL]
+	31 : FAIL_LPLZORTMATCH [CATEGORICAL]
+	24 : ANUMMERS.5 [NUMERICAL]
+	16 : ANUMMERS.6 [NUMERICAL]
+	5 : ANUMMERS.7 [NUMERICAL]
+
+Attribute in nodes with depth <= 0:
+	46 : NEUKUNDE [CATEGORICAL]
+	44 : DATUM_LBEST.0 [NUMERICAL]
+	42 : WERT_BEST_GES [NUMERICAL]
+	37 : ANZ_BEST_GES [NUMERICAL]
+	25 : B_EMAIL [CATEGORICAL]
+	24 : DATUM_LBEST.2 [NUMERICAL]
+	18 : DATUM_LBEST.1 [NUMERICAL]
+	17 : SESSION_TIME [NUMERICAL]
+	8 : Z_METHODE [CATEGORICAL]
+	8 : Z_CARD_ART [CATEGORICAL]
+	7 : WERT_BEST [NUMERICAL]
+	5 : Z_CARD_VALID [CATEGORICAL]
+	4 : TAG_BEST [CATEGORICAL]
+	4 : B_TELEFON [CATEGORICAL]
+	3 : CHK_LADR [CATEGORICAL]
+	2 : FLAG_NEWSLETTER [CATEGORICAL]
+	2 : B_GEBDATUM.0 [NUMERICAL]
+	1 : FAIL_LORT [CATEGORICAL]
+	1 : CHK_COOKIE [CATEGORICAL]
+	1 : ANUMMERS.1 [NUMERICAL]
+	1 : ANUMMERS.0 [NUMERICAL]
+
+Attribute in nodes with depth <= 1:
+	90 : NEUKUNDE [CATEGORICAL]
+	90 : B_EMAIL [CATEGORICAL]
+	68 : WERT_BEST_GES [NUMERICAL]
+	61 : DATUM_LBEST.0 [NUMERICAL]
+	60 : Z_CARD_ART [CATEGORICAL]
+	57 : SESSION_TIME [NUMERICAL]
+	57 : ANZ_BEST_GES [NUMERICAL]
+	49 : CHK_LADR [CATEGORICAL]
+	48 : Z_CARD_VALID [CATEGORICAL]
+	42 : Z_METHODE [CATEGORICAL]
+	39 : DATUM_LBEST.2 [NUMERICAL]
+	35 : DATUM_LBEST.1 [NUMERICAL]
+	34 : WERT_BEST [NUMERICAL]
+	27 : B_TELEFON [CATEGORICAL]
+	21 : CHK_COOKIE [CATEGORICAL]
+	19 : TAG_BEST [CATEGORICAL]
+	14 : MAHN_AKT [NUMERICAL]
+	13 : MAHN_HOECHST [NUMERICAL]
+	12 : CHK_RADR [CATEGORICAL]
+	12 : ANUMMERS.0 [NUMERICAL]
+	8 : CHK_IP [CATEGORICAL]
+	6 : Z_LAST_NAME [CATEGORICAL]
+	6 : TIME_BEST.0 [NUMERICAL]
+	6 : FLAG_NEWSLETTER [CATEGORICAL]
+	6 : B_GEBDATUM.0 [NUMERICAL]
+	4 : TIME_BEST.1 [NUMERICAL]
+	3 : FAIL_LORT [CATEGORICAL]
+	3 : ANUMMERS.2 [NUMERICAL]
+	3 : ANUMMERS.1 [NUMERICAL]
+	2 : FAIL_RORT [CATEGORICAL]
+	2 : ANUMMERS.4 [NUMERICAL]
+	1 : CHK_CARD [CATEGORICAL]
+	1 : B_GEBDATUM.2 [NUMERICAL]
+	1 : ANZ_BEST [NUMERICAL]
+
+Attribute in nodes with depth <= 2:
+	236 : Z_CARD_VALID [CATEGORICAL]
+	162 : B_EMAIL [CATEGORICAL]
+	143 : SESSION_TIME [NUMERICAL]
+	134 : NEUKUNDE [CATEGORICAL]
+	130 : Z_CARD_ART [CATEGORICAL]
+	119 : WERT_BEST [NUMERICAL]
+	109 : CHK_LADR [CATEGORICAL]
+	94 : Z_METHODE [CATEGORICAL]
+	93 : WERT_BEST_GES [NUMERICAL]
+	91 : DATUM_LBEST.0 [NUMERICAL]
+	77 : B_TELEFON [CATEGORICAL]
+	74 : ANUMMERS.0 [NUMERICAL]
+	72 : ANZ_BEST_GES [NUMERICAL]
+	59 : CHK_COOKIE [CATEGORICAL]
+	58 : TAG_BEST [CATEGORICAL]
+	57 : DATUM_LBEST.2 [NUMERICAL]
+	50 : DATUM_LBEST.1 [NUMERICAL]
+	43 : MAHN_HOECHST [NUMERICAL]
+	36 : MAHN_AKT [NUMERICAL]
+	29 : CHK_RADR [CATEGORICAL]
+	29 : B_GEBDATUM.0 [NUMERICAL]
+	26 : CHK_IP [CATEGORICAL]
+	25 : TIME_BEST.0 [NUMERICAL]
+	20 : Z_LAST_NAME [CATEGORICAL]
+	19 : TIME_BEST.1 [NUMERICAL]
+	18 : FAIL_LORT [CATEGORICAL]
+	16 : ANUMMERS.1 [NUMERICAL]
+	15 : FLAG_NEWSLETTER [CATEGORICAL]
+	13 : ANUMMERS.2 [NUMERICAL]
+	10 : B_GEBDATUM.1 [NUMERICAL]
+	8 : B_GEBDATUM.2 [NUMERICAL]
+	6 : FAIL_RORT [CATEGORICAL]
+	4 : ANUMMERS.3 [NUMERICAL]
+	3 : ANZ_BEST [NUMERICAL]
+	2 : FLAG_LRIDENTISCH [CATEGORICAL]
+	2 : ANUMMERS.4 [NUMERICAL]
+	1 : FAIL_LPLZORTMATCH [CATEGORICAL]
+	1 : CHK_CARD [CATEGORICAL]
+	1 : ANUMMERS.7 [NUMERICAL]
+	1 : ANUMMERS.5 [NUMERICAL]
+
+Attribute in nodes with depth <= 3:
+	664 : Z_CARD_VALID [CATEGORICAL]
+	289 : SESSION_TIME [NUMERICAL]
+	249 : B_EMAIL [CATEGORICAL]
+	240 : Z_CARD_ART [CATEGORICAL]
+	238 : WERT_BEST [NUMERICAL]
+	208 : ANUMMERS.0 [NUMERICAL]
+	195 : CHK_LADR [CATEGORICAL]
+	192 : TAG_BEST [CATEGORICAL]
+	172 : NEUKUNDE [CATEGORICAL]
+	160 : B_TELEFON [CATEGORICAL]
+	158 : Z_METHODE [CATEGORICAL]
+	158 : WERT_BEST_GES [NUMERICAL]
+	126 : DATUM_LBEST.0 [NUMERICAL]
+	102 : CHK_COOKIE [CATEGORICAL]
+	97 : TIME_BEST.1 [NUMERICAL]
+	97 : B_GEBDATUM.0 [NUMERICAL]
+	90 : ANZ_BEST_GES [NUMERICAL]
+	83 : DATUM_LBEST.2 [NUMERICAL]
+	82 : TIME_BEST.0 [NUMERICAL]
+	79 : DATUM_LBEST.1 [NUMERICAL]
+	77 : MAHN_HOECHST [NUMERICAL]
+	67 : MAHN_AKT [NUMERICAL]
+	54 : B_GEBDATUM.1 [NUMERICAL]
+	52 : ANUMMERS.1 [NUMERICAL]
+	45 : B_GEBDATUM.2 [NUMERICAL]
+	41 : Z_LAST_NAME [CATEGORICAL]
+	41 : ANUMMERS.2 [NUMERICAL]
+	40 : CHK_RADR [CATEGORICAL]
+	39 : CHK_IP [CATEGORICAL]
+	35 : FLAG_NEWSLETTER [CATEGORICAL]
+	28 : FAIL_LORT [CATEGORICAL]
+	18 : ANZ_BEST [NUMERICAL]
+	13 : FAIL_RORT [CATEGORICAL]
+	12 : ANUMMERS.3 [NUMERICAL]
+	7 : FLAG_LRIDENTISCH [CATEGORICAL]
+	4 : FAIL_LPLZORTMATCH [CATEGORICAL]
+	3 : FAIL_RPLZORTMATCH [CATEGORICAL]
+	3 : ANUMMERS.4 [NUMERICAL]
+	2 : FAIL_RPLZ [CATEGORICAL]
+	2 : FAIL_LPLZ [CATEGORICAL]
+	2 : CHK_CARD [CATEGORICAL]
+	1 : CHK_KTO [CATEGORICAL]
+	1 : ANUMMERS.7 [NUMERICAL]
+	1 : ANUMMERS.6 [NUMERICAL]
+	1 : ANUMMERS.5 [NUMERICAL]
+
+Attribute in nodes with depth <= 5:
+	2684 : Z_CARD_VALID [CATEGORICAL]
+	972 : TAG_BEST [CATEGORICAL]
+	865 : ANUMMERS.0 [NUMERICAL]
+	838 : SESSION_TIME [NUMERICAL]
+	813 : WERT_BEST [NUMERICAL]
+	626 : Z_CARD_ART [CATEGORICAL]
+	583 : TIME_BEST.1 [NUMERICAL]
+	466 : B_GEBDATUM.0 [NUMERICAL]
+	466 : B_EMAIL [CATEGORICAL]
+	431 : WERT_BEST_GES [NUMERICAL]
+	423 : B_TELEFON [CATEGORICAL]
+	406 : TIME_BEST.0 [NUMERICAL]
+	364 : CHK_LADR [CATEGORICAL]
+	347 : Z_METHODE [CATEGORICAL]
+	277 : ANUMMERS.1 [NUMERICAL]
+	276 : B_GEBDATUM.1 [NUMERICAL]
+	228 : NEUKUNDE [CATEGORICAL]
+	226 : DATUM_LBEST.0 [NUMERICAL]
+	214 : B_GEBDATUM.2 [NUMERICAL]
+	191 : DATUM_LBEST.1 [NUMERICAL]
+	190 : DATUM_LBEST.2 [NUMERICAL]
+	188 : CHK_COOKIE [CATEGORICAL]
+	162 : MAHN_HOECHST [NUMERICAL]
+	150 : ANUMMERS.2 [NUMERICAL]
+	147 : MAHN_AKT [NUMERICAL]
+	136 : ANZ_BEST_GES [NUMERICAL]
+	113 : Z_LAST_NAME [CATEGORICAL]
+	94 : ANZ_BEST [NUMERICAL]
+	93 : CHK_IP [CATEGORICAL]
+	85 : CHK_RADR [CATEGORICAL]
+	83 : FLAG_NEWSLETTER [CATEGORICAL]
+	67 : FAIL_LORT [CATEGORICAL]
+	57 : FLAG_LRIDENTISCH [CATEGORICAL]
+	53 : ANUMMERS.3 [NUMERICAL]
+	34 : FAIL_RORT [CATEGORICAL]
+	17 : ANUMMERS.4 [NUMERICAL]
+	14 : FAIL_RPLZORTMATCH [CATEGORICAL]
+	9 : FAIL_RPLZ [CATEGORICAL]
+	9 : FAIL_LPLZ [CATEGORICAL]
+	9 : CHK_KTO [CATEGORICAL]
+	7 : FAIL_LPLZORTMATCH [CATEGORICAL]
+	6 : ANUMMERS.5 [NUMERICAL]
+	5 : CHK_CARD [CATEGORICAL]
+	4 : ANUMMERS.6 [NUMERICAL]
+	1 : ANUMMERS.7 [NUMERICAL]
+
+Condition type in nodes:
+	92528 : HigherCondition
+	59057 : ContainsBitmapCondition
+	995 : ContainsCondition
+Condition type in nodes with depth <= 0:
+	193 : HigherCondition
+	107 : ContainsBitmapCondition
+Condition type in nodes with depth <= 1:
+	484 : ContainsBitmapCondition
+	416 : HigherCondition
+Condition type in nodes with depth <= 2:
+	1176 : ContainsBitmapCondition
+	909 : HigherCondition
+	1 : ContainsCondition
+Condition type in nodes with depth <= 3:
+	2344 : ContainsBitmapCondition
+	1919 : HigherCondition
+	5 : ContainsCondition
+Condition type in nodes with depth <= 5:
+	6830 : ContainsBitmapCondition
+	6546 : HigherCondition
+	53 : ContainsCondition
+Node format: NOT_SET
+
+Training OOB:
+	trees: 1, Out-of-bag evaluation: accuracy:0.555024 logloss:16.0385
+	trees: 12, Out-of-bag evaluation: accuracy:0.532308 logloss:7.70792
+	trees: 22, Out-of-bag evaluation: accuracy:0.528445 logloss:4.41092
+	trees: 32, Out-of-bag evaluation: accuracy:0.532078 logloss:3.01531
+	trees: 42, Out-of-bag evaluation: accuracy:0.531961 logloss:2.48039
+	trees: 52, Out-of-bag evaluation: accuracy:0.535088 logloss:1.92779
+	trees: 62, Out-of-bag evaluation: accuracy:0.527315 logloss:1.61567
+	trees: 72, Out-of-bag evaluation: accuracy:0.525944 logloss:1.48261
+	trees: 82, Out-of-bag evaluation: accuracy:0.526763 logloss:1.34341
+	trees: 92, Out-of-bag evaluation: accuracy:0.52297 logloss:1.21588
+	trees: 102, Out-of-bag evaluation: accuracy:0.523841 logloss:1.16595
+	trees: 112, Out-of-bag evaluation: accuracy:0.523833 logloss:1.10823
+	trees: 122, Out-of-bag evaluation: accuracy:0.523678 logloss:1.09356
+	trees: 132, Out-of-bag evaluation: accuracy:0.523272 logloss:1.06829
+	trees: 142, Out-of-bag evaluation: accuracy:0.522467 logloss:1.0301
+	trees: 152, Out-of-bag evaluation: accuracy:0.521123 logloss:1.0169
+	trees: 162, Out-of-bag evaluation: accuracy:0.522485 logloss:1.01579
+	trees: 172, Out-of-bag evaluation: accuracy:0.523383 logloss:1.00077
+	trees: 182, Out-of-bag evaluation: accuracy:0.523157 logloss:0.987303
+	trees: 192, Out-of-bag evaluation: accuracy:0.522437 logloss:0.98803
+	trees: 202, Out-of-bag evaluation: accuracy:0.522189 logloss:0.987085
+	trees: 212, Out-of-bag evaluation: accuracy:0.522101 logloss:0.986856
+	trees: 222, Out-of-bag evaluation: accuracy:0.52038 logloss:0.975609
+	trees: 232, Out-of-bag evaluation: accuracy:0.521211 logloss:0.963463
+	trees: 242, Out-of-bag evaluation: accuracy:0.520336 logloss:0.941196
+	trees: 253, Out-of-bag evaluation: accuracy:0.518593 logloss:0.929502
+	trees: 263, Out-of-bag evaluation: accuracy:0.519261 logloss:0.917748
+	trees: 273, Out-of-bag evaluation: accuracy:0.519598 logloss:0.91691
+	trees: 283, Out-of-bag evaluation: accuracy:0.518925 logloss:0.916908
+	trees: 293, Out-of-bag evaluation: accuracy:0.520111 logloss:0.917566
+	trees: 300, Out-of-bag evaluation: accuracy:0.518453 logloss:0.917733
+
