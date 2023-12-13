@@ -4,3 +4,7 @@ tensorflow_decision_forests
 numpy
 scikit-learn
 pydot
+
+matplotlib
+seaborn
+PyQt5

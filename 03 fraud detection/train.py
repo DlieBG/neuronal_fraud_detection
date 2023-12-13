@@ -31,11 +31,17 @@ train, validate, test = np.split(
 
 non_fraud, fraud = np.bincount(dataframe['TARGET_BETRUG'])
 
+from sklearn.utils.class_weight import compute_class_weight
+class_weights = compute_class_weight('balanced', classes=np.unique(dataframe['TARGET_BETRUG']), y=dataframe['TARGET_BETRUG'])
+class_weight_dict = {cls: weight for cls, weight in zip(np.unique(dataframe['TARGET_BETRUG']), class_weights)}
+
+print(class_weights)
+
 print(len(train), 'training examples')
 print(len(validate), 'validation examples')
 print(len(test), 'test examples')
 
-batch_size = 64
+batch_size = 1024
 
 train_ds = data.dataframe_to_dataset(
     dataframe=train,
@@ -98,9 +104,8 @@ category_layer = encoder.get_category_encoding_layer(
     name=data.products_feature,
     dataset=train_ds,
     dtype='string',
-    max_tokens=250,
-    # output_mode='multi_hot',
-    output_mode='int',
+    max_tokens=100,
+    output_mode='multi_hot',
 )
 
 encoded_layer = category_layer(input)
@@ -112,9 +117,15 @@ encoded_layers.append(encoded_layer)
 x = k.layers.concatenate(encoded_layers)
 x = k.layers.Dense(128, activation='relu')(x)
 x = k.layers.Dropout(.5)(x)
-x = k.layers.Dense(64, activation='relu')(x)
-x = k.layers.Dropout(.25)(x)
-output = k.layers.Dense(1, activation='sigmoid')(x)
+x = k.layers.Dense(48, activation='relu')(x)
+x = k.layers.Dropout(.5)(x)
+output = k.layers.Dense(
+    1,
+    activation='sigmoid',
+    bias_initializer=k.initializers.Constant(
+        np.log([fraud/non_fraud])
+    ),
+)(x)
 
 model = k.Model(inputs, output)
 
@@ -123,7 +134,7 @@ model.compile(
         learning_rate=.001,
     ),
     loss=k.losses.BinaryCrossentropy(
-        label_smoothing=.33,
+        # label_smoothing=.25,
     ),
     metrics=[
         'accuracy',
@@ -143,12 +154,9 @@ k.utils.plot_model(
 # train model
 model.fit(
     x=train_ds,
-    epochs=10,
+    epochs=100,
     validation_data=validate_ds,
-    class_weight={
-        0: 1.25,
-        1: 8,
-    },
+    class_weight=class_weight_dict,
 )
 
 # evaluate model

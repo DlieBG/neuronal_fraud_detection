@@ -113,10 +113,11 @@ def dataframe_to_dataset(dataframe: pd.DataFrame, batch_size: int = 32) -> tf.da
             dataframe_to_tensors(dataframe),
             targets,
         )
-    ).shuffle(
-        buffer_size=len(dataframe),
-    ).batch(
-        batch_size=batch_size,
-    ).prefetch(
-        buffer_size=batch_size,
     )
+#     .shuffle(
+#         buffer_size=len(dataframe),
+#     ).batch(
+#         batch_size=batch_size,
+#     ).prefetch(
+#         buffer_size=batch_size,
+#     )
