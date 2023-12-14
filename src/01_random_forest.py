@@ -59,9 +59,11 @@ model.fit(
 )
 
 # evaluate model
-model.evaluate(
+loss, acc, tn, tp, fn, fp = model.evaluate(
     x=test_ds,
 )
+
+print(f"Evaluate: {loss, acc, tn, tp, fn, fp}")
 
 # save report
 with open('random_forest_report.txt','w') as file:
