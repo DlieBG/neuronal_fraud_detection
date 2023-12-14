@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import keras as k
 
-import utils.clean, utils.data
+import utils.clean, utils.data, utils.plot
 
 # download dataset
 k.utils.get_file(
@@ -51,7 +51,7 @@ model.compile(
 )
 
 # train model
-model.fit(
+history = model.fit(
     x=train_ds,
     class_weight=utils.data.get_class_weights(
         dataframe=dataframe,
@@ -64,6 +64,14 @@ loss, acc, tn, tp, fn, fp = model.evaluate(
 )
 
 print(f"Evaluate: {loss, acc, tn, tp, fn, fp}")
+
+utils.plot.plot_cm(
+    tn=tn,
+    tp=tp,
+    fn=fn,
+    fp=fp,
+    file='random_forest_confusion_matrix.png',
+)
 
 # save report
 with open('random_forest_report.txt','w') as file:

@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import keras as k
 
-import utils.clean, utils.data, utils.encoding_layers
+import utils.clean, utils.data, utils.encoding_layers, utils.plot
 
 # download dataset
 k.utils.get_file(
@@ -60,7 +60,6 @@ output = k.layers.Dense(
     )
 )(x)
 
-
 model = k.Model(inputs, output)
 
 model.compile(
@@ -80,7 +79,7 @@ model.compile(
 )
 
 # train model
-model.fit(
+history = model.fit(
     x=train_ds,
     epochs=100,
     validation_data=validate_ds,
@@ -89,12 +88,25 @@ model.fit(
     ),
 )
 
+utils.plot.plot_loss_accuracy(
+    history=history,
+    file='neuronal_network_loss_accuracy.png',
+)
+
 # evaluate model
 loss, acc, tn, tp, fn, fp = model.evaluate(
     x=test_ds,
 )
 
 print(f"Evaluate: {loss, acc, tn, tp, fn, fp}")
+
+utils.plot.plot_cm(
+    tn=tn,
+    tp=tp,
+    fn=fn,
+    fp=fp,
+    file='neuronal_network_confusion_matrix.png',
+)
 
 # save report
 with open('neuronal_network_report.txt','w') as file:
